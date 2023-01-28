@@ -33,14 +33,34 @@ let catenaZapata = new Product("catena zapata", 20, "wines");
 let elEnemigo = new Product("el enemigo", 30, "wines");
 let terrazas = new Product("terrazas reserva malbec", 18, "wines");
 
-/* alert("Welcome to La taberna de Federico!")
-let mensajeInicial = prompt("What dishes do you want to order today?") */
+const menu = [meatEmpanada, provoleta, chorizo, meatSchnitzel, tbone, asado, panqueque, iceCream, strawberries, stillWater, sparklingWater, soda, catenaZapata, elEnemigo, terrazas]
+
+alert("Welcome to La taberna de Federico!")
+access = prompt("Are you a client or an employee?")
+console.log(access)
+
+while(access !== "client" && access !== "employee"){
+        alert("Intruder!!!")
+        access = prompt("Let's try again... are you a client or an employee?")
+}
+
+let selection
+if (access === "client"){
+    selection = prompt("Let's begin then! Have a look at the menu and choose what you want to order today. Separate them with commas.")
+} else if (access === "employee"){
+    console.log(access)
+    alert("You should not be consulting this menu, you should already know our prices!")
+}
+
+console.log(selection)
+
+// let order = prompt("What dishes do you want to order today?")
+
 
 /* console.log("The price of meat empanada is " + meatEmpanada.price + " and adding the VAT the total would be " + meatEmpanada.sumVAT()); */
 
 
-
-let selection = {} /* acá tengo que meter los objetos que el usuario seleccionó que quiere comer */
+/* let selection = {} // acá tengo que meter los objetos que el usuario seleccionó que quiere comer
 
 function theCheck() {
     let j = 0
@@ -52,7 +72,7 @@ function theCheck() {
 let totalGross = theCheck()
 console.log("The total of the whole meal would be " + totalGross + " USD.");
 let suggestedTip = 0.1*totalGross;
-let tip = parseInt(prompt("Do you want to add a tip? (we suggest 10%, that would be " + suggestedTip + " USD."));
+let tip = parseFloat(prompt("Do you want to add a tip? (we suggest 10%, that would be " + suggestedTip + " USD."));
 
 function calcTip(){
     let finalTip = 0;
@@ -66,4 +86,4 @@ function calcTip(){
 }
 
 let totalNet = totalGross + calcTip()
-console.log("The total of the meal plus tip would be " + totalNet + " USD.")
+console.log("The total of the meal plus tip would be " + totalNet + " USD.") */
