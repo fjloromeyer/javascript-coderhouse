@@ -39,55 +39,47 @@ function runHtmlBeforeJavascript() {
     const menu = [meatEmpanada, provoleta, chorizo, meatSchnitzel, tbone, asado, panqueque, iceCream, strawberries, stillWater, sparklingWater, soda, catenaZapata, elEnemigo, terrazas]
 
     alert("Welcome to La taberna de Federico!")
-    access = prompt("Are you a client or an employee?").toLowerCase()
-    console.log(access)
+    access = prompt("Are you a client or an employee?").toLowerCase() //asking if it is a client or not
 
+    // if it is not a client or an employee, ask again as many times as necessary until client or employee is answered.
     while(access !== "client" && access !== "employee"){
             alert("Intruder!!!")
-            access = prompt("Let's try again... are you a client or an employee?").toLowerCase()
+            access = prompt("Let's try again... are you a client or an employee?").toLowerCase() //putting the prompt in lower case.
     }
 
-    console.log(access)
-
+    // if the user is a client, asking what he wants. If it is an employee, get out of here.
     let selection
+    let sumPrices = 0
     if (access === "client"){
         selection = prompt("Let's begin then! Have a look at the menu and tell me the ID of what you want to order today.")
     } else if (access === "employee"){
         console.log(access)
         alert("You should not be consulting this menu, you should already know our prices!")
     }
-
-    console.log(selection)
-
-    let sumPrices = 0
+    
+    // going through the menu list and if the ID entered by the client matches the ID of one of our objects in the menu, get the price and sum it in sumPrices
     for (i=0; i<menu.length; i++) {
         if (menu[i].number == selection) {
             sumPrices = sumPrices + menu[i].price
-            alert("Ordering this will cost you " + sumPrices + " USD.")
+            alert("Ordering this will cost you " + sumPrices + " USD.") //later on adding feature to put as many dishes as one wants and summing all to have the check
         }
     }
 
-    if (sumPrices === 0) {
-        alert("You didn't choose a correct dish.")
+    // if the user is an employee do nothing. If it is a client and selected a wrong ID, asking to select again.
+    if (sumPrices === 0 && access === "employee") {
+        pass
+    } else if (sumPrices === 0) {
+        alert("You didn't choose a correct dish. Please enter only the ID at the left of the name of the dish that you want to order, for example 1.2")
     }
 
+    let suggestedTip = 0.1*sumPrices;
+    let tip = parseFloat(prompt("Do you want to add a tip? (we suggest 10%, that would be " + suggestedTip + " USD. Please enter only the number."));
+    console.log(tip)
 
-    /* console.log("The price of meat empanada is " + meatEmpanada.price + " and adding the VAT the total would be " + meatEmpanada.sumVAT()); */
-
-
-    /* let selection = {} // acá tengo que meter los objetos que el usuario seleccionó que quiere comer
-
-    function theCheck() {
-        let j = 0
-        for (const i in selection) {
-            j = j + i.price
-        }
-        return j
-    }
-    let totalGross = theCheck()
-    console.log("The total of the whole meal would be " + totalGross + " USD.");
-    let suggestedTip = 0.1*totalGross;
-    let tip = parseFloat(prompt("Do you want to add a tip? (we suggest 10%, that would be " + suggestedTip + " USD."));
+/*     while(access !== "client" && access !== "employee"){
+        alert("Intruder!!!")
+        access = prompt("Let's try again... are you a client or an employee?").toLowerCase() //putting the prompt in lower case.
+    } */
 
     function calcTip(){
         let finalTip = 0;
@@ -100,8 +92,10 @@ function runHtmlBeforeJavascript() {
         return finalTip
     }
 
-    let totalNet = totalGross + calcTip()
-    console.log("The total of the meal plus tip would be " + totalNet + " USD.") */
+    let totalNet = sumPrices + calcTip()
+
+    console.log("The total of the meal plus tip would be " + totalNet + " USD.")
 }
+
 const elemento = document.getElementById("beginOrder")
 elemento.addEventListener("click", runHtmlBeforeJavascript)
