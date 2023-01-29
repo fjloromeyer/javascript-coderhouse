@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap");
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* html {
+    min-height: 100%;
+    position: relative;
+    font-size: 62.5%;
+}  */
+
+/* .header-container, .footer-container {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem 1rem;
+    justify-content: space-between;
+} */
+
+body {
+    background-color: #8b786d;
+    min-height: 100vh;
+/*     display: flex;
+    flex-direction: column; */
+    margin: auto;
+}
+
+.body-container {
+    padding: 1rem 2rem 1rem;
+    margin-bottom: 7rem; /* must be same as heigth of footer*/
+    /* display: grid; */
+}

@@ -39,13 +39,15 @@ function runHtmlBeforeJavascript() {
     const menu = [meatEmpanada, provoleta, chorizo, meatSchnitzel, tbone, asado, panqueque, iceCream, strawberries, stillWater, sparklingWater, soda, catenaZapata, elEnemigo, terrazas]
 
     alert("Welcome to La taberna de Federico!")
-    access = prompt("Are you a client or an employee?")
+    access = prompt("Are you a client or an employee?").toLowerCase()
     console.log(access)
 
     while(access !== "client" && access !== "employee"){
             alert("Intruder!!!")
-            access = prompt("Let's try again... are you a client or an employee?")
+            access = prompt("Let's try again... are you a client or an employee?").toLowerCase()
     }
+
+    console.log(access)
 
     let selection
     if (access === "client"){
@@ -61,7 +63,7 @@ function runHtmlBeforeJavascript() {
     for (i=0; i<menu.length; i++) {
         if (menu[i].number == selection) {
             sumPrices = sumPrices + menu[i].price
-            alert("Ordering this will cost you " + sumPrices + ".")
+            alert("Ordering this will cost you " + sumPrices + " USD.")
         }
     }
 
