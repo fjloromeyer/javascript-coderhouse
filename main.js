@@ -91,7 +91,7 @@ function runHtmlBeforeJavascript() { //this function was made to have the html r
     if (access === "employee") {
         pass
     } else {
-        tip = prompt("Do you want to add a tip? (we suggest 10%, that would be " + suggestedTip + " USD. Please enter only the number separated with a dot, example: 1.2.");
+        tip = prompt("Do you want to add a tip? (we suggest 10%, that would be " + suggestedTip + " USD. Please enter only the value, example: 1.2.");
         if (tip.includes(",")){
             tip = tip.replace(",",".")
         }
