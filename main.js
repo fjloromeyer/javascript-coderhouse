@@ -1,7 +1,7 @@
     
 function runHtmlBeforeJavascript() { //this function was made to have the html run before javascript code, so client can look at the menu before answering prompts.
     const VAT = 0.21; //Value added tax = 21%
-
+    const date = new Date()
     class Product{
         constructor(number, name, price, category){
             this.number = number
@@ -41,7 +41,22 @@ function runHtmlBeforeJavascript() { //this function was made to have the html r
     let elEnemigo = new Product(5.2, "El Enemigo", 30, "wines");
     let terrazas = new Product(5.3, "Terrazas Reserva Malbec", 18, "wines");
 
-    const menu = [meatEmpanada, provoleta, chorizo, meatSchnitzel, tbone, asado, panqueque, iceCream, strawberries, stillWater, sparklingWater, soda, catenaZapata, elEnemigo, terrazas]
+    let menu = []
+    menu.push(meatEmpanada)
+    menu.push(provoleta)
+    menu.push(chorizo)
+    menu.push(meatSchnitzel)
+    menu.push(tbone)
+    menu.push(asado)
+    menu.push(panqueque)
+    menu.push(iceCream)
+    menu.push(strawberries)
+    menu.push(stillWater)
+    menu.push(sparklingWater)
+    menu.push(soda)
+    menu.push(catenaZapata)
+    menu.push(elEnemigo)
+    menu.push(terrazas)
 
     alert("Welcome to La taberna de Federico!")
     access = prompt("Are you a client or an employee?").toLowerCase() //asking if it is a client or not
