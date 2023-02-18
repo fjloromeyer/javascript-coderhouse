@@ -30,3 +30,22 @@ body {
     margin: auto;
     /* display: grid; */
 }
+
+.card {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem;
+    padding: 1rem;
+}
+
+.imgProducts {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin-top: 1rem;
+}
+
+.colorButton {
+    color: #fafafa;
+    background-color: #85bb65;
+}

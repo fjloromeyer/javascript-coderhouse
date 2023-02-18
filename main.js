@@ -3,11 +3,13 @@ function runHtmlBeforeJavascript() { //this function was made to have the html r
     const VAT = 0.21; //Value added tax = 21%
     const date = new Date()
     class Product{
-        constructor(number, name, price, category){
-            this.number = number
+        constructor(id, name, price, category, img){
+            this.id = id
             this.name = name;
             this.price = price;
             this.category = category;
+            this.img = img;
+            this.quantity = 1;
         }
 
         sumVAT() {
@@ -58,6 +60,40 @@ function runHtmlBeforeJavascript() { //this function was made to have the html r
     menu.push(elEnemigo)
     menu.push(terrazas)
 
+    let cart = [];
+
+    if(localStorage.getItem("cart")){
+        cart = JSON.parse(localStorage.getItem("cart"));
+    }
+
+    const productContainer = document.getElementById("productContainer");
+
+    const showProducts = () => {
+        menu.forEach(product => {
+            const card = document.createElement("div");
+            card.classList.add("col-xl-3", "col-md-6", "col-sm-12");
+            card.innerHTML = `
+                            <div class ="card">
+                                <img src = "${product.img}" class = "card-img-top imgProducts" alt = "${product.name}">
+                                <div>
+                                    <h5> ${product.name} </h5>
+                                    <p> ${product.price} </p>
+                                    <button class = "btn colorButton" id="button${product.id}" > Add to cart </button>
+                                </div>
+                            </div>
+                            `
+            productContainer.appendChild(card);
+            
+            //Add products to the cart: 
+            const button = document.getElementById(`button${product.id}`);
+            button.addEventListener("click", () => {
+                addToCart(product.id);
+            })
+        })
+    }
+
+    showProducts();
+
     alert("Welcome to La taberna de Federico!")
     access = prompt("Are you a client or an employee?").toLowerCase() //asking if it is a client or not
 
@@ -79,7 +115,7 @@ function runHtmlBeforeJavascript() { //this function was made to have the html r
     // going through the menu list and if the ID entered by the client matches the ID of one of our objects in the menu, get the price and sum it in sumPrices
     function cost (foodId) {
         for (i=0; i<menu.length; i++) {
-            if (menu[i].number == foodId) {
+            if (menu[i].id == foodId) {
                 sumPrices = sumPrices + menu[i].price
                 alert("Ordering this will cost you " + sumPrices + " USD.") //later on adding feature to put as many dishes as one wants and summing all to have the check
             }
