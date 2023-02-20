@@ -58,9 +58,9 @@ menu.push(catenaZapata)
 menu.push(elEnemigo)
 menu.push(terrazas)
 
-let categories = ["starter", "main", "dessert", "drink", "wine"];
+let categories = ["starter", "main", "dessert", "drink", "wine"]; //could be user later on if I want to split the menu into diff categories.
 
-let cart = [];
+let cart = []; //create the cart as an empty list. Will be adding products later on.
 
 if(localStorage.getItem("cart")){
     cart = JSON.parse(localStorage.getItem("cart"));
@@ -88,6 +88,7 @@ const showProducts = () => {
         const button = document.getElementById(`button${product.id}`);
         button.addEventListener("click", () => {
             addToCart(product.id);
+            showCart();
         })
     })
 }
@@ -108,11 +109,6 @@ const addToCart = (id) => {
 }
 
 const cartContainer = document.getElementById("cartContainer");
-const seeCart = document.getElementById("seeCart");
-
-seeCart.addEventListener("click", () => {
-    showCart();
-})
 
 const showCart = () => {
     cartContainer.innerHTML = "";
@@ -123,40 +119,78 @@ const showCart = () => {
                         <div class ="card">
                             <img src = "${product.img}" class = "card-img-top imgProducts" alt = "${product.name}">
                             <div>
-                                <h5> ${product.name} </h5>
-                                <p> ${product.price} </p>
-                                <p> ${product.quantity} </p>
+                                <h5>${product.name}</h5>
+                                <p>Quantity: ${product.quantity}.</p>
+                                <p>Price per unit: ${product.price} USD.</p>
+                                <p>Subtotal: ${product.price * product.quantity} USD.</p>
+                                <button class = "btn colorButton" id="+${product.id}" > + </button>
+                                <button class = "btn colorButton" id="-${product.id}" > - </button>
                                 <button class = "btn colorButton" id="delete${product.id}" > Delete </button>
                             </div>
                         </div>
                         `
         cartContainer.appendChild(card);
 
-        const button = document.getElementById(`delete${product.id}`);
-        button.addEventListener("click", () => {
+        const plusButton = document.getElementById(`+${product.id}`);
+        plusButton.addEventListener("click", () => {
+            addOneUnit(product.id);
+        })
+
+        const minusButton = document.getElementById(`-${product.id}`);
+        minusButton.addEventListener("click", () => {
+            deleteOneUnit(product.id);
+        })
+
+        const deleteButton = document.getElementById(`delete${product.id}`);
+        deleteButton.addEventListener("click", () => {
             deleteFromCart(product.id);
         })
     })
     calcTotal();
 }
 
+const addOneUnit = (id) => {
+    const productInCart = cart.find(product => product.id === id)
+    productInCart.quantity++;
+    calcTotal();
+    showCart();
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+const deleteOneUnit = (id) => {
+    const productInCart = cart.find(product => product.id === id);
+    if (productInCart.quantity === 1) {
+        deleteFromCart(id);
+    } else {
+        productInCart.quantity--;
+    }
+    calcTotal();
+    showCart();
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
 const deleteFromCart = (id) => {
-    const product = cart.find(product => product.id === id);
-    const index = cart.indexOf(product);
+    const productInCart = cart.find(product => product.id === id);
+    const index = cart.indexOf(productInCart);
+    productInCart.quantity = 1;
     cart.splice(index, 1);
+    calcTotal();
     showCart();
 
     localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 const total = document.getElementById("total");
+total.innerHTML = `0 USD.` //I want the total to say 0 on the HTML when there are no products in the cart.
 
 const calcTotal = () => {
     let totalPrice = 0; 
     cart.forEach(product => {
         totalPrice += product.price * product.quantity;
     })
-    total.innerHTML = `Total: $${totalPrice}`;
+    total.innerHTML = `${totalPrice} USD.`;
 }
 
 const emptyCart = document.getElementById("emptyCart");
@@ -167,6 +201,7 @@ emptyCart.addEventListener("click", () => {
 
 const emptyWholeCart = () => {
     cart = [];
+    calcTotal();
     showCart();
 
     //LocalStorage:
@@ -177,10 +212,10 @@ const emptyWholeCart = () => {
 
 
 
+//THE WHOLE LOGIC BELOW IS FOR THE PREVIOUS PROJECT, WITH ALERTS, PROMPTS AND LOOPS --> THIS WAS CHANGED AFTER 2ND DEADLINE.
 
 
-
-alert("Welcome to La taberna de Federico!")
+/* alert("Welcome to La taberna de Federico!")
 access = prompt("Are you a client or an employee?").toLowerCase() //asking if it is a client or not
 
 // if it is not a client or an employee, ask again as many times as necessary until client or employee is answered.
@@ -253,4 +288,4 @@ function calcTip(money){
 
 //calculate and inform the total net of the whole meal.
 let totalNet = sumPrices + calcTip(tip)
-alert("The total of the meal plus tip would be " + totalNet + " USD.")
+alert("The total of the meal plus tip would be " + totalNet + " USD.") */
