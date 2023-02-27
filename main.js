@@ -101,7 +101,8 @@ const addToCart = (id) => {
         productInCart.quantity++;
     } else {
         const product = menu.find (product => product.id === id);
-        cart.push(product);
+        const cartItem = {...product}
+        cart.push(cartItem);
     }
     calcTotal();
     
@@ -191,6 +192,7 @@ const calcTotal = () => {
         totalPrice += product.price * product.quantity;
     })
     total.innerHTML = `${totalPrice} USD.`;
+    localStorage.setItem("total", totalPrice)
 }
 
 const emptyCart = document.getElementById("emptyCart");
@@ -208,8 +210,11 @@ const emptyWholeCart = () => {
     localStorage.clear();
 }
 
+const checkout = document.getElementById("checkout");
 
-
+checkout.addEventListener("click", () => {
+    window.location.assign("/checkout.html")
+})
 
 
 //THE WHOLE LOGIC BELOW IS FOR THE PREVIOUS PROJECT, WITH ALERTS, PROMPTS AND LOOPS --> THIS WAS CHANGED AFTER 2ND DEADLINE.

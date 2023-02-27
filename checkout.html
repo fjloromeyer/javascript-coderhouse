@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="description" content="We combine both experience and passion in financial, strategic and design issues. F&C wlil help you and your business reach full potential.">
+    <meta name="keywords" content="goals, purpose, strategy, mission, startup, ideas, branding, financial, managament, advice, companies, cashflows, research, business, market, objectives, design, consulting, advisory, barcelona, spain, europe, boutique"> -->
+    <!-- <link rel="shortcut icon" href="./images/favicon-mountain.png" type="image/x-icon"> -->
+    <!-- CSS BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/checkout.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/style/ag-grid.css">
+    <title>Deliver it!</title>
+</head>
+<body class="body-container">
+    <main>
+        <section class="title">
+            <h1 id="title-container" class="text-center">
+                La taberna de Federico
+            </h1>
+        </section>
+        <hr>
+        <section>
+            <h5>Your total is: <span id="totalBeforePaying"></span> USD.</h5>
+            <div class="container p-0">
+                <div class="card px-4">
+                    <p class="h8 py-3">Payment Details</p>
+                    <div class="row gx-3">
+                        <div class="col-12">
+                            <div class="d-flex flex-column">
+                                <p class="text mb-1">Person Name</p>
+                                <input class="form-control mb-3" type="text" placeholder="Barry Allen">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex flex-column">
+                                <p class="text mb-1">Address</p>
+                                <input class="form-control mb-3" type="text" placeholder="Argentina Avenue 123">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex flex-column">
+                                <p class="text mb-1">Card Number</p>
+                                <input class="form-control mb-3" type="text" placeholder="1234 5678 435678">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex flex-column">
+                                <p class="text mb-1">Expiry</p>
+                                <input class="form-control mb-3" type="text" placeholder="MM/YYYY">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex flex-column">
+                                <p class="text mb-1">CVV/CVC</p>
+                                <input class="form-control mb-3 pt-2 " type="password" placeholder="***">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="btn btn-primary mb-3">
+                                <span class="ps-3" id="payTotal"></span>
+                                <span class="fas fa-arrow-right"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="checkout.js"></script>
+</body>
+</html>
