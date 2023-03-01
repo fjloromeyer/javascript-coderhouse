@@ -76,6 +76,8 @@ if(localStorage.getItem("cart")){
     cart = JSON.parse(localStorage.getItem("cart"));
 }
 
+console.log(cart)
+
 const productContainer = document.getElementById("productContainer");
 
 const showProducts = () => {
@@ -86,6 +88,7 @@ const showProducts = () => {
                         <div class ="card">
                             <img src = "${product.img}" class = "imgProducts" alt = "${product.name}">
                             <div class="infoProducts">
+                                <hr>
                                 <h5> ${product.name} </h5>
                                 <p> ${product.price} USD</p>
                                 <button class = "btn colorButton" id="button${product.id}" > Add to cart </button>
@@ -130,6 +133,7 @@ const showCart = () => {
                         <div class ="card">
                             <img src = "${product.img}" class = "card-img-top imgProducts" alt = "${product.name}">
                             <div>
+                                <hr>
                                 <h5>${product.name}</h5>
                                 <p>Quantity: ${product.quantity}.</p>
                                 <p>Price per unit: ${product.price} USD.</p>
@@ -204,6 +208,8 @@ const calcTotal = () => {
     total.innerHTML = `${totalPrice} USD.`;
     localStorage.setItem("total", totalPrice)
 }
+
+showCart() //this one is to display the cart that is stored in localStorage even if I refresh the page.
 
 const emptyCart = document.getElementById("emptyCart");
 
