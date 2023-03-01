@@ -76,8 +76,6 @@ if(localStorage.getItem("cart")){
     cart = JSON.parse(localStorage.getItem("cart"));
 }
 
-console.log(cart)
-
 const productContainer = document.getElementById("productContainer");
 
 const showProducts = () => {
