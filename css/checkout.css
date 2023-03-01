@@ -1,53 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap");
-* {
-    padding: 0;
-    margin: 0;
-}
-
-body {
-    background-color: #8b786d;
-    min-height: 100vh;
-}
-
-.body-container {
-    padding: 1rem 2rem 1rem;
-    margin-bottom: 7rem; /* must be same as heigth of footer*/
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    /* display: grid; */
-}
-
-.card {
-    display: flex;
-    align-items: center;
-    margin: 0.5rem;
-    padding: 1rem;
-    background-color: #8b786d;
-}
-
-.imgProducts {
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
-    margin-top: 1rem;
-}
-
-.colorButton {
-    color: #fafafa;
-    background-color: #85bb65;
-}
-
-.colorButton:hover {
-    background-color: green;
-    color: #fafafa;
-}
-
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
@@ -60,7 +13,6 @@ body {
 
 .card {
     max-width: 500px;
-    margin: auto;
     color: black;
     border-radius: 20 px;
 }
@@ -127,4 +79,5 @@ p {
 ::placeholder {
     font-size: 14px;
     font-weight: 600;
+    color: white;
 }

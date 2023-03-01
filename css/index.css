@@ -30,6 +30,10 @@ body {
     width: 150px;
     height: 150px;
     object-fit: contain;
+    border-radius: 15%;
+}
+
+.infoProducts {
     margin-top: 1rem;
 }
 
