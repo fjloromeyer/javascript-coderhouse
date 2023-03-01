@@ -1,3 +1,4 @@
-calculadora de precios de comida antes de pedir. Simulas los platos que vas a comer en un restaurante, las bebidas, el porcentaje de propina.
+Interactive and responsive menu with a cart.
+Features such as adding and removing objects to and from the cart, adding/removing items entirely or by one unit once these are on the cart, emptying the cart completely and carrying the cart and the total price of the meal to the checkout page.
 
-A agregar: si viniste con auto pones tambien la patente asi cuando pagas preparan tu auto para irte en el caso de que lo desees (ponerlo como opcion).
+Using bootstrap, localstorage, functions of higher order and more.
