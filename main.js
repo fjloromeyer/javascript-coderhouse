@@ -72,9 +72,7 @@ let categories = ["starter", "main", "dessert", "drink", "alcohol"]; //could be 
 
 let cart = []; //create the cart as an empty list. Will be adding products later on.
 
-if(localStorage.getItem("cart")){
-    cart = JSON.parse(localStorage.getItem("cart"));
-}
+if(localStorage.getItem("cart")) cart = JSON.parse(localStorage.getItem("cart"));
 
 const productContainer = document.getElementById("productContainer");
 
@@ -173,11 +171,7 @@ const addOneUnit = (id) => {
 
 const deleteOneUnit = (id) => {
     const productInCart = cart.find(product => product.id === id);
-    if (productInCart.quantity === 1) {
-        deleteFromCart(id);
-    } else {
-        productInCart.quantity--;
-    }
+    productInCart.quantity === 1 ? deleteFromCart(id) : productInCart.quantity--;
     calcTotal();
     showCart();
 
