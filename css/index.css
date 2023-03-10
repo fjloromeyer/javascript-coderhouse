@@ -4,6 +4,10 @@
     margin: 0;
 }
 
+.background-color {
+    background-color: #8b786d;
+}
+
 body {
     background-color: #8b786d;
     min-height: 100vh;
@@ -46,4 +50,22 @@ body {
 .colorButton:hover {
     background-color: green;
     color: #fafafa;
+}
+
+.navbar {
+    justify-content: center;
+    @media (min-width: 768px) {
+        justify-content: end;
+    }
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+ul li {
+    list-style-type: none;
+    margin: 0.5rem;
 }

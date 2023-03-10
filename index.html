@@ -11,22 +11,35 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <!-- TOASTIFY CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!-- MY CSS -->
     <link rel="stylesheet" href="./css/index.css">
     <title>La Taberna de Federico</title>
 </head>
 
 <body class="body-container">
-    <!-- <header>
-        <button type="button" class="btn btn-outline-dark" id="beginOrder"> Begin ordering!
-        </button>
-    </header> -->
-    <main>
+    <header>
         <section class="title">
             <h1 id="title-container" class="text-center">
                 La taberna de Federico
             </h1>
         </section>
         <hr>
+        <nav class="navbar navbar-expand-lg background-color">
+            <div class="container-fluid">
+              <div class="navbar collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./index.html">Menu</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./checkout.html">Checkout</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+    </header>
+    <main>
         <section>
             <h3>What to EAT & DRINK</h3>
             <div id="productContainer" class="dishes row"></div>
@@ -40,9 +53,10 @@
             <button class="btn colorButton" id="checkout">Go to checkout</button>
         </section>
     </main>
+
     <!-- SWEET ALERT -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- BS -->
+    <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <!-- TOASTIFY -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>

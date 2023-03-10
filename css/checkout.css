@@ -81,3 +81,21 @@ p {
     font-weight: 600;
     color: white;
 }
+
+.navbar {
+    justify-content: center;
+    @media (min-width: 768px) {
+        justify-content: end;
+    }
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+ul li {
+    list-style-type: none;
+    margin: 0.5rem;
+}
