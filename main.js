@@ -97,6 +97,15 @@ const showProducts = () => {
         const button = document.getElementById(`button${product.id}`);
         button.addEventListener("click", () => {
             addToCart(product.id);
+            Toastify( {
+                text: "Added to cart :)",
+                duration: 2000, 
+                gravity: "top",
+                position: "right",
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                }
+            }).showToast();
             showCart();
         })
     })
@@ -155,6 +164,15 @@ const showCart = () => {
         const deleteButton = document.getElementById(`delete${product.id}`);
         deleteButton.addEventListener("click", () => {
             deleteFromCart(product.id);
+            Toastify( {
+                text: "Deleted from cart :(",
+                duration: 2000, 
+                gravity: "top",
+                position: "right",
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                }
+            }).showToast();
         })
     })
     calcTotal();
@@ -207,6 +225,15 @@ const emptyCart = document.getElementById("emptyCart");
 
 emptyCart.addEventListener("click", () => {
     emptyWholeCart();
+    Toastify( {
+        text: "Cart is now empty :(",
+        duration: 2000,
+        gravity: "top",
+        position: "right",
+        style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+        }
+    }).showToast();
 })
 
 const emptyWholeCart = () => {

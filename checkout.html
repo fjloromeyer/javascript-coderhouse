@@ -7,8 +7,11 @@
     <!-- <meta name="description" content="We combine both experience and passion in financial, strategic and design issues. F&C wlil help you and your business reach full potential.">
     <meta name="keywords" content="goals, purpose, strategy, mission, startup, ideas, branding, financial, managament, advice, companies, cashflows, research, business, market, objectives, design, consulting, advisory, barcelona, spain, europe, boutique"> -->
     <!-- <link rel="shortcut icon" href="./images/favicon-mountain.png" type="image/x-icon"> -->
-    <!-- CSS BOOTSTRAP -->
+    <!-- BOOTSTRAP CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- TOASTIFY CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!-- MY CSS -->
     <link rel="stylesheet" href="./css/checkout.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/style/ag-grid.css">
@@ -74,18 +77,21 @@
                                 <input class="form-control mb-3 pt-2 " type="text" placeholder="123" maxlength="3" require>
                             </div>
                         </div>
-                        <div class="col-12">
-                            <div class="btn btn-primary mb-3">
-                                <span class="ps-3" id="payTotal"></span>
-                                <span class="fas fa-arrow-right"></span>
-                            </div>
-                        </div>
+                        <button class="btn colorButton" id="payTotal"></button>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+    <!-- SWEET ALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!-- TOASTIFY -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!-- LUXON -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
+    <!-- MY JS CODE -->
     <script src="checkout.js"></script>
 </body>
 </html>
