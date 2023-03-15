@@ -1,69 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <meta name="description" content="We combine both experience and passion in financial, strategic and design issues. F&C wlil help you and your business reach full potential.">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta name="description" content="We combine both experience and passion in financial, strategic and design issues. F&C wlil help you and your business reach full potential.">
     <meta name="keywords" content="goals, purpose, strategy, mission, startup, ideas, branding, financial, managament, advice, companies, cashflows, research, business, market, objectives, design, consulting, advisory, barcelona, spain, europe, boutique"> -->
-    <!-- <link rel="shortcut icon" href="./images/favicon-mountain.png" type="image/x-icon"> -->
-    <!-- BOOTSTRAP CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <!-- TOASTIFY CSS -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <!-- MY CSS -->
-    <link rel="stylesheet" href="./css/index.css">
-    <title>La Taberna de Federico</title>
+  <!-- <link rel="shortcut icon" href="./images/favicon-mountain.png" type="image/x-icon"> -->
+  <!-- BOOTSTRAP CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <!-- TOASTIFY CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <!-- MY CSS -->
+  <link rel="stylesheet" href="./css/index.css">
+  <title>La Taberna de Federico</title>
 </head>
 
 <body class="body-container">
-    <header>
-        <section class="title">
-            <h1 id="title-container" class="text-center">
-                La taberna de Federico
-            </h1>
-        </section>
-        <hr>
-        <nav class="navbar navbar-expand-md background-color">
-            <div class="container-fluid">
-              <div class="navbar collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="./index.html">Menu</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./checkout.html">Checkout</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h3>What to EAT & DRINK</h3>
-            <div id="productContainer" class="dishes row"></div>
-        </section>
-        <hr>
-        <section>
-            <h3>What you are about to enjoy...</h3>
-            <div id="cartContainer" class="row"></div>
-            <h5>Your total is: <span id="total"></span> </h5>
-            <button class="btn colorButton" id="emptyCart">Empty Cart</button>
-            <button class="btn colorButton" id="checkout">Go to checkout</button>
-        </section>
-    </main>
+  <header>
+    <section class="title">
+      <h1 id="title-container" class="text-center">
+        La taberna de Federico
+      </h1>
+      <section class="subtitle-btc">
+        <h5 class="text-center">We accept &nbsp;</h5>
+        <img src="/img/btc.png" alt="btc-emoji">
+      </section>
+      <section class="subtitle-btc">
+        <div id="btcPriceUI"></div>
+      </section>
+    </section>
+    <hr>
+    <nav class="navbar navbar-expand-md background-color">
+      <div class="container-fluid">
+        <div class="navbar collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./index.html">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./checkout.html">Checkout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h3>What to EAT & DRINK</h3>
+      <div id="productContainer" class="dishes row"></div>
+    </section>
+    <hr>
+    <section>
+      <h3>What you are about to enjoy...</h3>
+      <div id="cartContainer" class="row"></div>
+      <h5>Your total is: <span id="total"></span> </h5>
+      <button class="btn colorButton" id="emptyCart">Empty Cart</button>
+      <button class="btn colorButton" id="checkout">Go to checkout</button>
+    </section>
+  </main>
 
-    <!-- SWEET ALERT -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <!-- TOASTIFY -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <!-- LUXON -->
-    <script src="https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
-    <!-- MY JS CODE -->
-    <script src="main.js"></script>
+  <!-- SWEET ALERT -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+  </script>
+  <!-- TOASTIFY -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <!-- LUXON -->
+  <script src="https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
+  <!-- MY JS CODE -->
+  <script src="main.js"></script>
 </body>
 
 </html>

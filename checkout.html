@@ -1,48 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <meta name="description" content="We combine both experience and passion in financial, strategic and design issues. F&C wlil help you and your business reach full potential.">
     <meta name="keywords" content="goals, purpose, strategy, mission, startup, ideas, branding, financial, managament, advice, companies, cashflows, research, business, market, objectives, design, consulting, advisory, barcelona, spain, europe, boutique"> -->
     <!-- <link rel="shortcut icon" href="./images/favicon-mountain.png" type="image/x-icon"> -->
     <!-- BOOTSTRAP CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
     <!-- TOASTIFY CSS -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
     <!-- MY CSS -->
-    <link rel="stylesheet" href="./css/checkout.css">
-    <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/style/ag-grid.css">
+    <link rel="stylesheet" href="./css/checkout.css" />
+    <link rel="stylesheet" href="./css/index.css" />
     <title>Deliver it!</title>
 </head>
+
 <body class="body-container">
     <header>
         <section class="title">
-            <h1 id="title-container" class="text-center">
-                La taberna de Federico
-            </h1>
+            <h1 id="title-container" class="text-center">La taberna de Federico</h1>
+            <section class="subtitle-btc">
+                <h5 class="text-center">We accept &nbsp;</h5>
+                <img src="/img/btc.png" alt="btc-emoji" />
+            </section>
+            <section class="subtitle-btc">
+                <div id="btcPriceUI"></div>
+            </section>
         </section>
-        <hr>
+        <hr />
         <nav class="navbar navbar-expand-md background-color">
             <div class="container-fluid">
-              <div class="navbar collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="./index.html">Menu</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" href="./checkout.html">Checkout</a>
-                  </li>
-                </ul>
-              </div>
+                <div class="navbar collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="./index.html">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="./checkout.html">Checkout</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
     <main>
         <section>
-            <h5>Your total is: <span id="totalBeforePaying"></span> USD.</h5>
+            <h5 id="totalBeforePaying"></h5>
             <div class="container p-0">
                 <div class="card px-4">
                     <p class="h8 py-3">Payment Details</p>
@@ -50,31 +57,35 @@
                         <div class="col-12">
                             <div class="d-flex flex-column">
                                 <p class="text mb-1">Person Name</p>
-                                <input class="form-control mb-3" type="text" placeholder="Barry Allen">
+                                <input class="form-control mb-3" type="text" placeholder="Barry Allen" />
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="d-flex flex-column">
                                 <p class="text mb-1">Address</p>
-                                <input class="form-control mb-3" type="text" placeholder="Argentina Avenue 123" require>
+                                <input class="form-control mb-3" type="text" placeholder="Argentina Avenue 123"
+                                    require />
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="d-flex flex-column">
                                 <p class="text mb-1">Card Number</p>
-                                <input class="form-control mb-3" type="text" placeholder="1234 5678 9101 1121" maxlength="16" require>
+                                <input class="form-control mb-3" type="text" placeholder="1234 5678 9101 1121"
+                                    maxlength="16" require />
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="d-flex flex-column">
                                 <p class="text mb-1">Expiry</p>
-                                <input class="form-control mb-3" type="text" placeholder="MM/YYYY" maxlength="7" require>
+                                <input class="form-control mb-3" type="text" placeholder="MM/YYYY" maxlength="7"
+                                    require />
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="d-flex flex-column">
                                 <p class="text mb-1">CVV/CVC</p>
-                                <input class="form-control mb-3 pt-2 " type="text" placeholder="123" maxlength="3" require>
+                                <input class="form-control mb-3 pt-2" type="text" placeholder="123" maxlength="3"
+                                    require />
                             </div>
                         </div>
                         <button class="btn colorButton" id="payTotal"></button>
@@ -86,7 +97,9 @@
     <!-- SWEET ALERT -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
     <!-- TOASTIFY -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <!-- LUXON -->
@@ -94,4 +107,5 @@
     <!-- MY JS CODE -->
     <script src="checkout.js"></script>
 </body>
+
 </html>

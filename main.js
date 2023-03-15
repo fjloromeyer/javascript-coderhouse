@@ -1,7 +1,7 @@
 const VAT = 0.21; //Value added tax = 21%
 const date = new Date()
-class Product{
-    constructor(id, name, price, category, img){
+class Product {
+    constructor(id, name, price, category, img) {
         this.id = id
         this.name = name;
         this.price = price;
@@ -11,12 +11,12 @@ class Product{
     }
 
     sumVAT() {
-        return this.price * (1+VAT);
+        return this.price * (1 + VAT);
     }
 };
 
 //create function to know if something is a float or not.
-function isFloat(n){
+function isFloat(n) {
     return Number(n) === n && n % 1 !== 0;
 }
 
@@ -68,11 +68,9 @@ menu.push(redWine)
 menu.push(whiteWine)
 menu.push(cocktail)
 
-let categories = ["starter", "main", "dessert", "drink", "alcohol"]; //could be user later on if I want to split the menu into diff categories.
-
 let cart = []; //create the cart as an empty list. Will be adding products later on.
 
-if(localStorage.getItem("cart")) cart = JSON.parse(localStorage.getItem("cart"));
+if (localStorage.getItem("cart")) cart = JSON.parse(localStorage.getItem("cart"));
 
 const productContainer = document.getElementById("productContainer");
 
@@ -92,14 +90,14 @@ const showProducts = () => {
                         </div>
                         `
         productContainer.appendChild(card);
-        
+
         //Add products to the cart: 
         const button = document.getElementById(`button${product.id}`);
         button.addEventListener("click", () => {
             addToCart(product.id);
-            Toastify( {
+            Toastify({
                 text: "Added to cart :)",
-                duration: 2000, 
+                duration: 2000,
                 gravity: "top",
                 position: "right",
                 style: {
@@ -115,15 +113,17 @@ showProducts();
 
 const addToCart = (id) => {
     const productInCart = cart.find(product => product.id === id)
-    if(productInCart) {
+    if (productInCart) {
         productInCart.quantity++;
     } else {
-        const product = menu.find (product => product.id === id);
-        const cartItem = {...product}
+        const product = menu.find(product => product.id === id);
+        const cartItem = {
+            ...product
+        }
         cart.push(cartItem);
     }
     calcTotal();
-    
+
     localStorage.setItem("cart", JSON.stringify(cart));
 }
 
@@ -164,9 +164,9 @@ const showCart = () => {
         const deleteButton = document.getElementById(`delete${product.id}`);
         deleteButton.addEventListener("click", () => {
             deleteFromCart(product.id);
-            Toastify( {
+            Toastify({
                 text: "Deleted from cart :(",
-                duration: 2000, 
+                duration: 2000,
                 gravity: "top",
                 position: "right",
                 style: {
@@ -207,17 +207,44 @@ const deleteFromCart = (id) => {
     localStorage.setItem("cart", JSON.stringify(cart));
 }
 
+const btcPriceUI = document.getElementById("btcPriceUI");
+const btcPricesEndPoint = "https://criptoya.com/api/btc/usd/1"; //Fetching BTC prices in USD.
+
 const total = document.getElementById("total");
-total.innerHTML = `0 USD.` //I want the total to say 0 on the HTML when there are no products in the cart.
+total.innerHTML = `0 USD` //I want the total to say 0 on the HTML when there are no products in the cart.
+
+let btcPrice; //I will define the btcPrice to calculate the total of the check in BTC afterwards.
+
+setInterval(() => {
+    fetch(btcPricesEndPoint)
+        .then(response => response.json())
+        .then(({
+            bitso
+        }) => {
+            btcPrice = bitso.totalAsk; //I store the BTC price in USD in a variable.
+            btcPriceUI.innerHTML = `
+                <p>@${btcPrice} USD/BTC</p>
+            ` //I change the DOM putting the BTC price in the front page.
+        })
+        .catch(error => console.error(error))
+}, 100) //I refresh prices every 0.1 seconds.
+
 
 const calcTotal = () => {
-    let totalPrice = 0; 
+    let totalPrice = 0;
+    let totalPriceBtc = 0;
     cart.forEach(product => {
         totalPrice += product.price * product.quantity;
     })
-    total.innerHTML = `${totalPrice} USD.`;
+    totalPriceBtc = totalPrice/btcPrice
+    isNaN(totalPriceBtc) ? total.innerHTML = `${totalPrice} USD` : total.innerHTML = `${totalPrice} USD / ${totalPriceBtc.toFixed(4)} BTC.` //if the BTC Price is NaN when refreshing the page, do not display it. After updating cart it will be good to go.
     localStorage.setItem("total", totalPrice)
+    localStorage.setItem("lastBtcPrice", btcPrice)
 }
+
+setInterval(() => {
+    calcTotal()
+}, 100) //I want to run the total every 0.1 seconds so the price in BTC never gets old.
 
 showCart() //this one is to display the cart that is stored in localStorage even if I refresh the page.
 
@@ -225,7 +252,7 @@ const emptyCart = document.getElementById("emptyCart");
 
 emptyCart.addEventListener("click", () => {
     emptyWholeCart();
-    Toastify( {
+    Toastify({
         text: "Cart is now empty :(",
         duration: 2000,
         gravity: "top",
@@ -250,5 +277,3 @@ const checkout = document.getElementById("checkout");
 checkout.addEventListener("click", () => {
     window.location.assign("/checkout.html")
 })
-
-
